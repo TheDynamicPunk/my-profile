@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+
+$primary-clr: #313131;
+$text-clr: white;
+$accent-primary: #b12f50;
+
+* {
+    padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+	scroll-behavior: smooth;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    scroll-snap-align: start;
+    height: 100vh;
+    width: 100%;
+    display: block;
+}
+
+a#button {
+    width: fit-content;
+    background-color: #00000000;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0.75em 1.75em;
+    text-decoration: none;
+    color: $text-clr;
+    border: 3px solid #b12f50;
+    transition: all 0.3s ease;
+    font-weight: 900;
+    z-index: 1;
+
+    i {
+        padding-left: 0.5em;
+    }
+}
+
+a#button::before {
+    content: '';
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: $accent-primary;
+    z-index: -1;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    transition: 0.3s ease-in;
+}
+
+a#button:hover::before {
+    height: 500%;
+}
+
+.bg {
+	position: relative;
+}
+
+.nav-links {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 70%;
+	background-color: $primary-clr;
+	height: 10vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	list-style: none;
+	font-size: 1.3rem;
+    padding-left: 20%;
+    
+	ul {
+		list-style: none;
+    }
+    
+	a {
+		text-decoration: none;
+		color: $text-clr;
+		transition: 0.3s ease;
+        
+        &::after {
+			content: '';
+			padding: 0.1em 0;
+			display: block;
+			width: 100%;
+			border-bottom: 3px solid white;
+			transform: translateX(-50%);
+			opacity: 0;
+			transition: 0.3s ease;
+		}
+        
+        &:hover {
+        
+            color: #d4d4d4;
+        
+            &::after {
+				opacity: 1;
+				transform: translateX(0%);
+			}
+		}
+	}
+}
+
+#home {
+    .left-slant {
+        position: relative;
+        clip-path: polygon(0 0, 40% 0, 57% 100%, 0% 100%);
+        width: 100%;
+        height: 100vh;
+        z-index: 1;
+        overflow-y: hidden;
+        
+        img {
+            filter: grayscale(1) brightness(0.6);
+        }
+    }
+
+    .right-slant {
+        padding-top: 4%;
+        height: 90vh;
+        position: absolute;
+        top: 10vh;
+        left: 42vw;
+        width: 54%;
+        color: $text-clr;
+        
+        .content {
+            // border-top-right-radius: 50px;
+            background-color: #181818;
+            padding-top: 20%;
+            padding-bottom: 8%;
+            padding-right: 10%;
+            padding-left: 25%;
+            display: flex;
+            flex-direction: column;
+            
+            h1 {
+                font-size: 4rem;
+                padding-bottom: 10px;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                padding-bottom: 10px;
+            }
+            
+            p {
+                font-size: 1.5rem;
+            }
+            
+            .down-chevron {
+                margin: 20% auto 0 auto;
+                transition: 0.3s ease;
+                
+                img {
+                    height: 30px;
+                    width: 30px;
+                }
+                
+                &:hover {
+                    transform: translateY(-20%);
+                }
+            }
+        }
+    }
+}
+
+#projects {
+    background-color: $primary-clr;
+    color: $text-clr;
+    width: 100%;
+
+    .image {
+        float: right;
+        height: 100%;
+        background-color: white;
+        clip-path: polygon(100% 0%, 100% 100%, 25% 100%, 37% 0%);
+        shape-outside: polygon(100% 0%, 100% 100%, 25% 100%, 37% 0%);
+        shape-margin: 2em;
+        
+        img {
+            margin-left: 50%;
+            margin-top: 7%;
+            width: 46%;
+        }
+    }
+
+    .content {
+        padding: 2em;
+
+        h1 {
+            font-size: 2rem;
+            padding-bottom: 1em;
+        }
+
+        h2 {
+            padding: 1em 0;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 25%;
+            height: 5px;
+            border-bottom: 3px solid white;
+        }
+
+        p {
+            padding: 0 0 1em 0;
+        }
+    }
+}
+
+#footer {
+    background-color: black;
+    color: $text-clr;
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: max-content;
+    width: 100%;
+
+    .pane {
+        padding: 0 2em;
+
+        &:nth-child(n) {
+            border-right: 2px solid $accent-primary;
+        }
+
+        &:last-child {
+            border: none;
+        }
+    }
+}
