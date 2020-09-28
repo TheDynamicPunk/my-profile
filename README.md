@@ -1,4 +1,4 @@
 # my-profile
-My sassy profile website!
+My awesome profile website!
 
-Live demo here: https://mysassyprofile.netlify.app
+Live demo here: https://myawesomeprofile.netlify.app
